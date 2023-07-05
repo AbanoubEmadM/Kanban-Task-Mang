@@ -3,7 +3,7 @@ html(lang="en")
         include head.pug
     body 
         main
-            .overlay.active
+            .overlay
             section#main
                 nav 
                     .platform 
@@ -11,7 +11,7 @@ html(lang="en")
                     .add-task
                         button 
                             h4 +Add New Task
-                .new-task.active   
+                .new-task
                     h2 Add New Task 
                     .title 
                         h4 Title 
@@ -22,14 +22,30 @@ html(lang="en")
                     .subtasks 
                         h4 Subtasks 
                         input(type='text' placeholder='e.g Make coffee')
-                        input(type='text' placeholder='e.g Drink coffee & smile')
-                        button 
+                        //input(type='text' placeholder='e.g Drink coffee & smile')
+                        button.add-task 
                             h4 +Add New Subtask
+                    .status 
+                        h4 Status 
+                        select(name="" id='categories')  
+                            option Select Category
+                            option(value='platform-launch') Platform Launch
+                            option(value='marketing-plan') Marketing Plan
+                            option(value='roadmap') Roadmap
+                        select(name="" id='state')  
+                            option Select Category
+                            option(value='todos') Todo
+                            option(value='doing') Doing
+                            option(value='done') Done
+                    button.create-task Create new task
                 section.main-sec
-                    .platform-launch
-                    .roadmap
-                    .marketing-plan
+                    .data-handler
 
             aside 
                 p aside
+                ul 
+                    - const links = [{name: 'platform-launch', value: 'Platform Launch'}, {name: 'roadmap', value: 'Roadmap'}, {name: 'marketing-plan', value: 'Marketing Plan'}]
+                    each link in links
+                        li 
+                            a(href=`#${link.name}`)= link.value
         script(src="dist/bundle.js") 

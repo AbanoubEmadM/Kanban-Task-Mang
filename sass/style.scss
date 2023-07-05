@@ -1,4 +1,5 @@
 @import 'utilities';
+@import 'buttons';
 
 * {
     margin: 0;
@@ -16,6 +17,7 @@ main {
     .overlay {
         position: absolute;
         &.active {
+            z-index: 1;
             left: 0;
             width: 100%;
             height: 100%;   
@@ -42,14 +44,9 @@ main {
             justify-content: space-between;
             border-bottom: 1px solid #888;
             background-color: $primary-color;
-            .add-task button {
-                background-color: #645FC6;
-                border: none;
-                padding: 15px;
-                border-radius: 25px;
-                color: $light-color;
-                cursor: pointer;
-            }   
+            button {
+                @include btn($btn-color, $light-color)
+            }
         }
     }
     .new-task{
@@ -64,6 +61,7 @@ main {
         background-color: $primary-color;
         display: flex;
         flex-direction: column;    
+        z-index: 2;
         &.active {
             top: 0;
         }
@@ -71,33 +69,36 @@ main {
             font-weight: 400;
             margin-bottom: 20px;
         }
-        input {
-            width: 100%;
-            outline: none;
-            color: #fff;
-        }
-        h4 {
-            font-weight: 400;
+        h4{
             margin-bottom: 10px;
         }
-        .title, .desc, .subtasks {
+        .title, .desc, .subtasks, .status {
             margin-bottom: 20px;
-            input {
+            h4 {
+                font-weight: 600;
+            }
+            button {
+                @include btn($light-color, $btn-color)
+            }
+            input,select {
+                width: 100%;
+                outline: none;
+                color: #fff;
                 background-color: transparent;
                 border: 1px solid #555555;
                 padding: 13px;
                 border-radius: 4px;
                 margin-bottom: 10px;
+                transition: 0.3s;
+                option {
+                    color: #000;
+                }
+                &:focus {
+                    border: 1px solid #ccc;
+                }
             }
         }
         button {
-            background-color: $light-color;
-            border: none;
-            padding: 15px;
-            border-radius: 25px;
-            color: #645FC6;
-            width: 100%;
-            cursor: pointer;
             h4 {
                 margin: 0;
                 font-weight: 600;
@@ -109,39 +110,62 @@ main {
         padding: 40px;
         background-color: $secondary-color;
         display: flex;
-        .marketing-plan, .roadmap, .platform-launch{
+        .data-handler{
             display: flex;
             flex: 1;
             flex-wrap: wrap;
-            flex-direction: column;
-            .pre-plan{
+            flex-direction: row;
+            .todos, .done, .doing {
+                flex: 1;
                 position: relative;
-                display: flex;
-                margin-left: 10px;
-                align-items: center;
-                .status {
-                    color: #918e8e;
-                    font-size: 12px;
-                    margin-left: 20px;
+                .pre-plan{
+                    position: relative;
+                    display: flex;
+                    margin-left: 10px;
+                    align-items: center;
+                    .status {
+                        color: #918e8e;
+                        font-size: 12px;
+                        margin-left: 20px;
+                    }
+                    span {
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        &.todo-span {
+                            background-color: #45c4e7;
+                        }
+                        &.done-span {
+                            background-color: #67e0ab;
+                        }
+                        &.doing-span {
+                            background-color: #836ef9;
+                        }
+                    }
+                    h4 {
+                        margin-left: 20px;
+                        text-transform: uppercase;
+                        font-size: 13px;
+                    }
+
+                    
                 }
-                span {
-                    position: absolute;
-                    /* top: 0; */
-                    /* left: 1px; */
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    /* margin-right: 6px; */
-                }
+
             }
-            .plan {
+            .todo, .done-todos, .doing-todos {
                 margin: 10px;
                 background-color: $primary-color;
                 padding: 20px;
+                width: 97%;
+                margin-right: 10px;
                 border-radius: 4px;
                 p {
                     margin-bottom: 10px;
                 }
+                
             }
+            /*div {
+            }*/
         }
     }

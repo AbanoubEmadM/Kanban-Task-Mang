@@ -15,6 +15,7 @@ main .overlay {
   position: absolute;
 }
 main .overlay.active {
+  z-index: 1;
   left: 0;
   width: 100%;
   height: 100%;
@@ -41,13 +42,19 @@ main nav {
   border-bottom: 1px solid #888;
   background-color: #2C2C38;
 }
-main nav .add-task button {
+main nav button {
   background-color: #645FC6;
   border: none;
   padding: 15px;
   border-radius: 25px;
   color: #fff;
+  width: 100%;
+  transition: 0.3s;
   cursor: pointer;
+}
+main nav button:hover {
+  color: #645FC6;
+  background-color: #fff;
 }
 
 .new-task {
@@ -62,6 +69,7 @@ main nav .add-task button {
   background-color: #2C2C38;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 .new-task.active {
   top: 0;
@@ -70,33 +78,45 @@ main nav .add-task button {
   font-weight: 400;
   margin-bottom: 20px;
 }
-.new-task input {
-  width: 100%;
-  outline: none;
-  color: #fff;
-}
 .new-task h4 {
-  font-weight: 400;
   margin-bottom: 10px;
 }
-.new-task .title, .new-task .desc, .new-task .subtasks {
+.new-task .title, .new-task .desc, .new-task .subtasks, .new-task .status {
   margin-bottom: 20px;
 }
-.new-task .title input, .new-task .desc input, .new-task .subtasks input {
-  background-color: transparent;
-  border: 1px solid #555555;
-  padding: 13px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+.new-task .title h4, .new-task .desc h4, .new-task .subtasks h4, .new-task .status h4 {
+  font-weight: 600;
 }
-.new-task button {
+.new-task .title button, .new-task .desc button, .new-task .subtasks button, .new-task .status button {
   background-color: #fff;
   border: none;
   padding: 15px;
   border-radius: 25px;
   color: #645FC6;
   width: 100%;
+  transition: 0.3s;
   cursor: pointer;
+}
+.new-task .title button:hover, .new-task .desc button:hover, .new-task .subtasks button:hover, .new-task .status button:hover {
+  color: #fff;
+  background-color: #645FC6;
+}
+.new-task .title input, .new-task .title select, .new-task .desc input, .new-task .desc select, .new-task .subtasks input, .new-task .subtasks select, .new-task .status input, .new-task .status select {
+  width: 100%;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #555555;
+  padding: 13px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.new-task .title input option, .new-task .title select option, .new-task .desc input option, .new-task .desc select option, .new-task .subtasks input option, .new-task .subtasks select option, .new-task .status input option, .new-task .status select option {
+  color: #000;
+}
+.new-task .title input:focus, .new-task .title select:focus, .new-task .desc input:focus, .new-task .desc select:focus, .new-task .subtasks input:focus, .new-task .subtasks select:focus, .new-task .status input:focus, .new-task .status select:focus {
+  border: 1px solid #ccc;
 }
 .new-task button h4 {
   margin: 0;
@@ -109,38 +129,57 @@ section.main-sec {
   background-color: #21212D;
   display: flex;
 }
-section.main-sec .marketing-plan, section.main-sec .roadmap, section.main-sec .platform-launch {
+section.main-sec .data-handler {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+  /*div {
+  }*/
 }
-section.main-sec .marketing-plan .pre-plan, section.main-sec .roadmap .pre-plan, section.main-sec .platform-launch .pre-plan {
+section.main-sec .data-handler .todos, section.main-sec .data-handler .done, section.main-sec .data-handler .doing {
+  flex: 1;
+  position: relative;
+}
+section.main-sec .data-handler .todos .pre-plan, section.main-sec .data-handler .done .pre-plan, section.main-sec .data-handler .doing .pre-plan {
   position: relative;
   display: flex;
   margin-left: 10px;
   align-items: center;
 }
-section.main-sec .marketing-plan .pre-plan .status, section.main-sec .roadmap .pre-plan .status, section.main-sec .platform-launch .pre-plan .status {
+section.main-sec .data-handler .todos .pre-plan .status, section.main-sec .data-handler .done .pre-plan .status, section.main-sec .data-handler .doing .pre-plan .status {
   color: #918e8e;
   font-size: 12px;
   margin-left: 20px;
 }
-section.main-sec .marketing-plan .pre-plan span, section.main-sec .roadmap .pre-plan span, section.main-sec .platform-launch .pre-plan span {
+section.main-sec .data-handler .todos .pre-plan span, section.main-sec .data-handler .done .pre-plan span, section.main-sec .data-handler .doing .pre-plan span {
   position: absolute;
-  /* top: 0; */
-  /* left: 1px; */
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  /* margin-right: 6px; */
 }
-section.main-sec .marketing-plan .plan, section.main-sec .roadmap .plan, section.main-sec .platform-launch .plan {
+section.main-sec .data-handler .todos .pre-plan span.todo-span, section.main-sec .data-handler .done .pre-plan span.todo-span, section.main-sec .data-handler .doing .pre-plan span.todo-span {
+  background-color: #45c4e7;
+}
+section.main-sec .data-handler .todos .pre-plan span.done-span, section.main-sec .data-handler .done .pre-plan span.done-span, section.main-sec .data-handler .doing .pre-plan span.done-span {
+  background-color: #67e0ab;
+}
+section.main-sec .data-handler .todos .pre-plan span.doing-span, section.main-sec .data-handler .done .pre-plan span.doing-span, section.main-sec .data-handler .doing .pre-plan span.doing-span {
+  background-color: #836ef9;
+}
+section.main-sec .data-handler .todos .pre-plan h4, section.main-sec .data-handler .done .pre-plan h4, section.main-sec .data-handler .doing .pre-plan h4 {
+  margin-left: 20px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+section.main-sec .data-handler .todo, section.main-sec .data-handler .done-todos, section.main-sec .data-handler .doing-todos {
   margin: 10px;
   background-color: #2C2C38;
   padding: 20px;
+  width: 97%;
+  margin-right: 10px;
   border-radius: 4px;
 }
-section.main-sec .marketing-plan .plan p, section.main-sec .roadmap .plan p, section.main-sec .platform-launch .plan p {
+section.main-sec .data-handler .todo p, section.main-sec .data-handler .done-todos p, section.main-sec .data-handler .doing-todos p {
   margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */
