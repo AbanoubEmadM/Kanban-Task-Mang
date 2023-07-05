@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+main .overlay {
+  position: absolute;
+}
+main .overlay.active {
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+main aside {
+  flex: 1;
+  height: 100vh;
+  color: #fff;
+  background-color: #2C2C38;
+  border-right: 1px solid #888;
+  padding: 40px;
+}
+main #main {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+main nav {
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #888;
+  background-color: #2C2C38;
+}
+main nav .add-task button {
+  background-color: #645FC6;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.new-task {
+  position: absolute;
+  top: -900px;
+  transition: 0.3s;
+  width: 400px;
+  height: 600px;
+  transform: translate(50%, 50%);
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #2C2C38;
+  display: flex;
+  flex-direction: column;
+}
+.new-task.active {
+  top: 0;
+}
+.new-task h2 {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.new-task input {
+  width: 100%;
+  outline: none;
+  color: #fff;
+}
+.new-task h4 {
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.new-task .title, .new-task .desc, .new-task .subtasks {
+  margin-bottom: 20px;
+}
+.new-task .title input, .new-task .desc input, .new-task .subtasks input {
+  background-color: transparent;
+  border: 1px solid #555555;
+  padding: 13px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.new-task button {
+  background-color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  color: #645FC6;
+  width: 100%;
+  cursor: pointer;
+}
+.new-task button h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+section.main-sec {
+  height: 100%;
+  padding: 40px;
+  background-color: #21212D;
+  display: flex;
+}
+section.main-sec .marketing-plan, section.main-sec .roadmap, section.main-sec .platform-launch {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+section.main-sec .marketing-plan .pre-plan, section.main-sec .roadmap .pre-plan, section.main-sec .platform-launch .pre-plan {
+  position: relative;
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+}
+section.main-sec .marketing-plan .pre-plan .status, section.main-sec .roadmap .pre-plan .status, section.main-sec .platform-launch .pre-plan .status {
+  color: #918e8e;
+  font-size: 12px;
+  margin-left: 20px;
+}
+section.main-sec .marketing-plan .pre-plan span, section.main-sec .roadmap .pre-plan span, section.main-sec .platform-launch .pre-plan span {
+  position: absolute;
+  /* top: 0; */
+  /* left: 1px; */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* margin-right: 6px; */
+}
+section.main-sec .marketing-plan .plan, section.main-sec .roadmap .plan, section.main-sec .platform-launch .plan {
+  margin: 10px;
+  background-color: #2C2C38;
+  padding: 20px;
+  border-radius: 4px;
+}
+section.main-sec .marketing-plan .plan p, section.main-sec .roadmap .plan p, section.main-sec .platform-launch .plan p {
+  margin-bottom: 10px;
+}/*# sourceMappingURL=style.css.map */

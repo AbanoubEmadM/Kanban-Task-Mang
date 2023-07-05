@@ -1,0 +1,58 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&amp;family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/>
+    <title>Kanban</title>
+  </head>
+  <body> 
+    <main>
+      <div class="overlay active"></div>
+      <section id="main">
+        <nav> 
+          <div class="platform"> 
+            <p>Platform Launch</p>
+          </div>
+          <div class="add-task">
+            <button> 
+              <h4>+Add New Task</h4>
+            </button>
+          </div>
+        </nav>
+        <div class="new-task active">  
+          <h2>Add New Task </h2>
+          <div class="title"> 
+            <h4>Title </h4>
+            <input type="text" placeholder="e.g Take coffe break"/>
+          </div>
+          <div class="desc"> 
+            <h4>Description </h4>
+            <input type="text" placeholder="e.g its always good take a break. This 15 minutes break will rechange the battaries a little."/>
+          </div>
+          <div class="subtasks"> 
+            <h4>Subtasks </h4>
+            <input type="text" placeholder="e.g Make coffee"/>
+            <input type="text" placeholder="e.g Drink coffee &amp; smile"/>
+            <button> 
+              <h4>+Add New Subtask</h4>
+            </button>
+          </div>
+        </div>
+        <section class="main-sec">
+          <div class="platform-launch"></div>
+          <div class="roadmap"></div>
+          <div class="marketing-plan"></div>
+        </section>
+      </section>
+      <aside> 
+        <p>aside</p>
+      </aside>
+    </main>
+    <script src="dist/bundle.js"> </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+html(lang="en")
+    head
+        include head.pug
+    body 
+        main
+            .overlay.active
+            section#main
+                nav 
+                    .platform 
+                        p Platform Launch
+                    .add-task
+                        button 
+                            h4 +Add New Task
+                .new-task.active   
+                    h2 Add New Task 
+                    .title 
+                        h4 Title 
+                        input(type='text' placeholder='e.g Take coffe break')
+                    .desc 
+                        h4 Description 
+                        input(type='text' placeholder='e.g its always good take a break. This 15 minutes break will rechange the battaries a little.')
+                    .subtasks 
+                        h4 Subtasks 
+                        input(type='text' placeholder='e.g Make coffee')
+                        input(type='text' placeholder='e.g Drink coffee & smile')
+                        button 
+                            h4 +Add New Subtask
+                section.main-sec
+                    .platform-launch
+                    .roadmap
+                    .marketing-plan
+
+            aside 
+                p aside
+        script(src="dist/bundle.js") 
