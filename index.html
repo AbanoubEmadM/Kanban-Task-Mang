@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&amp;family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/>
-    <title>Kanban</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Kanban Management</title>
   </head>
   <body> 
     <main>
@@ -19,7 +20,7 @@
             <p>Platform Launch</p>
           </div>
           <div class="add-task">
-            <button> 
+            <button>
               <h4>+Add New Task</h4>
             </button>
           </div>
@@ -28,49 +29,45 @@
           <h2>Add New Task </h2>
           <div class="title"> 
             <h4>Title </h4>
-            <input type="text" placeholder="e.g Take coffe break"/>
-          </div>
-          <div class="desc"> 
-            <h4>Description </h4>
-            <input type="text" placeholder="e.g its always good take a break. This 15 minutes break will rechange the battaries a little."/>
+            <input type="text" id="title" placeholder="e.g Take coffe break" required="required"/>
           </div>
           <div class="subtasks"> 
             <h4>Subtasks </h4>
-            <input type="text" placeholder="e.g Make coffee"/>
-            <!--input(type='text' placeholder='e.g Drink coffee & smile')-->
-            <button class="add-task"> 
-              <h4>+Add New Subtask</h4>
-            </button>
+            <input type="text" id="subtitle" placeholder="e.g Make coffee" required="required"/>
           </div>
-          <div class="status"> 
-            <h4>Status </h4>
-            <select name="" id="categories"> 
-              <option>Select Category</option>
-              <option value="platform-launch">Platform Launch</option>
+          <div class="status">
+            <h4>Status                                 </h4>
+            <select name="" id="categories" required="required"> 
+              <option value="platform-launch" selected="selected">Platform Launch</option>
               <option value="marketing-plan">Marketing Plan</option>
               <option value="roadmap">Roadmap</option>
             </select>
-            <select name="" id="state"> 
-              <option>Select Category</option>
-              <option value="todos">Todo</option>
-              <option value="doing">Doing</option>
-              <option value="done">Done</option>
+            <select name="" id="state" required="required"> 
+              <option value="todos/todo" selected="selected">Todo</option>
+              <option value="doing/doing-todos">Doing</option>
+              <option value="done/done-todos">Done</option>
             </select>
+            <button class="create-task"> 
+              <h4>Create new task</h4>
+            </button>
           </div>
-          <button class="create-task">Create new task</button>
         </div>
         <section class="main-sec">
           <div class="data-handler"></div>
         </section>
       </section>
+      <div class="show-query"></div>
       <aside> 
-        <p>aside</p>
+        <div class="logo"> <img src="lib/logo.png"/></div>
+        <p>All Boards</p>
         <ul> 
-          <li> <a href="#platform-launch">Platform Launch</a></li>
-          <li> <a href="#roadmap">Roadmap</a></li>
-          <li> <a href="#marketing-plan">Marketing Plan</a></li>
+          <li class="platform-launch"><i class="fa-solid fa-table-columns"></i><a href="#platform-launch">Platform Launch</a></li>
+          <li class="roadmap"><i class="fa-solid fa-table-columns"></i><a href="#roadmap">Roadmap</a></li>
+          <li class="marketing-plan"><i class="fa-solid fa-table-columns"></i><a href="#marketing-plan">Marketing Plan</a></li>
+          <li class="create-new-board"><i class="fa-solid fa-table-columns"></i><span>+Create New Board</span></li>
         </ul>
       </aside>
+      <div class="new-board"></div>
     </main>
     <script src="dist/bundle.js"> </script>
   </body>

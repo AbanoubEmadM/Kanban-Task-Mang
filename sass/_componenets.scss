@@ -1,0 +1,23 @@
+%floating-box {
+    position: absolute;
+    top: -1000px;
+    transition: 0.3s;
+    width: 400px;
+    height: 650px;
+    //transform: translate(50%,50%); 
+    left: 40%;   
+    padding: 20px;
+    border-radius: 5px;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;    
+    z-index: 2;
+    color: $light-color;
+    &.active {
+        top: 15%;
+    }
+
+}
+.new-task, .show-query, .new-board{
+    @extend %floating-box
+}

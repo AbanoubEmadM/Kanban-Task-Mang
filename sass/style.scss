@@ -1,5 +1,6 @@
 @import 'utilities';
 @import 'buttons';
+@import '_componenets';
 
 * {
     margin: 0;
@@ -24,14 +25,6 @@ main {
             background: rgba(0,0,0,0.6);
         }     
     }
-    aside{
-        flex: 1;
-        height: 100vh;
-        color: $light-color;
-        background-color: $primary-color;
-        border-right: 1px solid #888;
-        padding: 40px;
-    }
     #main{
         flex: 4;
         display: flex;
@@ -48,47 +41,127 @@ main {
                 @include btn($btn-color, $light-color)
             }
         }
-    }
-    .new-task{
-        position: absolute;
-        top: -900px;
-        transition: 0.3s;
-        width: 400px;
-        height: 600px;
-        transform: translate(50%,50%);    
-        padding: 20px;
-        border-radius: 5px;
-        background-color: $primary-color;
-        display: flex;
-        flex-direction: column;    
-        z-index: 2;
-        &.active {
-            top: 0;
-        }
-        h2 {
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-        h4{
-            margin-bottom: 10px;
-        }
-        .title, .desc, .subtasks, .status {
-            margin-bottom: 20px;
-            h4 {
-                font-weight: 600;
+        .new-task{
+            h2 {
+                font-weight: 400;
+                margin-bottom: 20px;
+            }
+            h4{
+                margin-bottom: 10px;
+            }
+            .title, .desc, .subtasks, .status {
+                margin-bottom: 20px;
+                h4 {
+                    font-weight: 600;
+                }
+                button {
+                    @include btn($light-color, $btn-color)
+                }
+                input,select {
+                    width: 100%;
+                    outline: none;
+                    color: #fff;
+                    background-color: transparent;
+                    border: 1px solid #555555;
+                    padding: 13px;
+                    border-radius: 4px;
+                    margin-bottom: 10px;
+                    transition: 0.3s;
+                    option {
+                        color: #000;
+                    }
+                    &:focus {
+                        border: 1px solid #ccc;
+                    }
+                }
             }
             button {
-                @include btn($light-color, $btn-color)
+                @include btn($btn-color, $light-color);
+                h4 {
+                    margin: 0;
+                    font-weight: 600;
+                }
             }
-            input,select {
+        }
+        section.main-sec {
+            height: 100%;
+            padding: 40px;
+            background-color: $secondary-color;
+            display: flex;
+            .data-handler{
+                display: flex;
+                flex: 1;
+                flex-wrap: wrap;
+                flex-direction: row;
+                .todos, .done, .doing {
+                    flex: 1;
+                    position: relative;
+                    .pre-plan{
+                        position: relative;
+                        display: flex;
+                        margin-left: 10px;
+                        align-items: center;
+                        .status {
+                            color: #918e8e;
+                            font-size: 12px;
+                            margin-left: 20px;
+                        }
+                        span {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            &.todo-span {
+                                background-color: #45c4e7;
+                            }
+                            &.done-span {
+                                background-color: #67e0ab;
+                            }
+                            &.doing-span {
+                                background-color: #836ef9;
+                            }
+                        }
+                        h4 {
+                            margin-left: 20px;
+                            text-transform: uppercase;
+                            font-size: 13px;
+                        }
+    
+                        
+                    }
+    
+                }
+                .todo, .done-todos, .doing-todos {
+                    margin: 10px;
+                    background-color: $primary-color;
+                    padding: 20px;
+                    width: 97%;
+                    margin-right: 10px;
+                    border-radius: 4px;
+                    transition: 0.3s;
+                    p {
+                        margin-bottom: 10px;
+                    }
+                    &:hover{
+                        transition: 0.3s;
+                        background-color: $hover-color;
+                        cursor: pointer;
+                    }    
+                }
+            }
+        }
+        .show-query{
+            select {
                 width: 100%;
                 outline: none;
                 color: #fff;
                 background-color: transparent;
                 border: 1px solid #555555;
                 padding: 13px;
+                margin: 10px 0;
                 border-radius: 4px;
                 margin-bottom: 10px;
+                cursor: pointer;
                 transition: 0.3s;
                 option {
                     color: #000;
@@ -97,75 +170,57 @@ main {
                     border: 1px solid #ccc;
                 }
             }
-        }
-        button {
-            h4 {
-                margin: 0;
-                font-weight: 600;
+            button{
+                @include btn($btn-color, $light-color);
+                margin:5px 0;
             }
         }
-    }
-    section.main-sec {
-        height: 100%;
-        padding: 40px;
-        background-color: $secondary-color;
-        display: flex;
-        .data-handler{
-            display: flex;
+        aside {
             flex: 1;
-            flex-wrap: wrap;
-            flex-direction: row;
-            .todos, .done, .doing {
-                flex: 1;
-                position: relative;
-                .pre-plan{
-                    position: relative;
-                    display: flex;
-                    margin-left: 10px;
-                    align-items: center;
-                    .status {
-                        color: #918e8e;
-                        font-size: 12px;
-                        margin-left: 20px;
-                    }
-                    span {
-                        position: absolute;
-                        width: 10px;
-                        height: 10px;
-                        border-radius: 50%;
-                        &.todo-span {
-                            background-color: #45c4e7;
-                        }
-                        &.done-span {
-                            background-color: #67e0ab;
-                        }
-                        &.doing-span {
-                            background-color: #836ef9;
-                        }
-                    }
-                    h4 {
-                        margin-left: 20px;
-                        text-transform: uppercase;
-                        font-size: 13px;
-                    }
-
-                    
-                }
-
+            height: 100vh;
+            color: $light-color;
+            background-color: $primary-color;
+            border-right: 1px solid #888;
+            .logo {
+                margin: 15px;
             }
-            .todo, .done-todos, .doing-todos {
-                margin: 10px;
-                background-color: $primary-color;
-                padding: 20px;
-                width: 97%;
-                margin-right: 10px;
-                border-radius: 4px;
-                p {
+            p {
+                margin: 15px;
+                color: #777;
+                font-weight: 500;
+                font-size: 16px;
+            }
+            ul {
+                li{
+                    cursor: pointer;
+                    margin: 15px;
+                    list-style: none;
                     margin-bottom: 10px;
+                    a {
+                        color: #777 !important;
+                        text-decoration: none;
+                    }
+                    i {
+                        color: #777 !important;
+                        margin-right: 10px;
+                    }
+                    &.active{
+                        margin: 0;
+                        background-color: #645FC6;
+                        padding: 15px;
+                        border-bottom-right-radius: 28px;
+                        border-top-right-radius: 30px;
+                        width: 90%;
+                        a,i{
+                            color: #fff !important;
+                        }
+                    }
+                    &.create-new-board {
+                        span,i {
+                            color: $btn-color !important;
+                        }
+                    }
                 }
-                
             }
-            /*div {
-            }*/
         }
     }

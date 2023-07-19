@@ -1,3 +1,22 @@
+.new-task, .show-query, .new-board {
+  position: absolute;
+  top: -1000px;
+  transition: 0.3s;
+  width: 400px;
+  height: 650px;
+  left: 40%;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #2C2C38;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  color: #fff;
+}
+.active.new-task, .active.show-query, .active.new-board {
+  top: 15%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,14 +39,6 @@ main .overlay.active {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-}
-main aside {
-  flex: 1;
-  height: 100vh;
-  color: #fff;
-  background-color: #2C2C38;
-  border-right: 1px solid #888;
-  padding: 40px;
 }
 main #main {
   flex: 4;
@@ -56,38 +67,20 @@ main nav button:hover {
   color: #645FC6;
   background-color: #fff;
 }
-
-.new-task {
-  position: absolute;
-  top: -900px;
-  transition: 0.3s;
-  width: 400px;
-  height: 600px;
-  transform: translate(50%, 50%);
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #2C2C38;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-}
-.new-task.active {
-  top: 0;
-}
-.new-task h2 {
+main .new-task h2 {
   font-weight: 400;
   margin-bottom: 20px;
 }
-.new-task h4 {
+main .new-task h4 {
   margin-bottom: 10px;
 }
-.new-task .title, .new-task .desc, .new-task .subtasks, .new-task .status {
+main .new-task .title, main .new-task .desc, main .new-task .subtasks, main .new-task .status {
   margin-bottom: 20px;
 }
-.new-task .title h4, .new-task .desc h4, .new-task .subtasks h4, .new-task .status h4 {
+main .new-task .title h4, main .new-task .desc h4, main .new-task .subtasks h4, main .new-task .status h4 {
   font-weight: 600;
 }
-.new-task .title button, .new-task .desc button, .new-task .subtasks button, .new-task .status button {
+main .new-task .title button, main .new-task .desc button, main .new-task .subtasks button, main .new-task .status button {
   background-color: #fff;
   border: none;
   padding: 15px;
@@ -97,11 +90,11 @@ main nav button:hover {
   transition: 0.3s;
   cursor: pointer;
 }
-.new-task .title button:hover, .new-task .desc button:hover, .new-task .subtasks button:hover, .new-task .status button:hover {
+main .new-task .title button:hover, main .new-task .desc button:hover, main .new-task .subtasks button:hover, main .new-task .status button:hover {
   color: #fff;
   background-color: #645FC6;
 }
-.new-task .title input, .new-task .title select, .new-task .desc input, .new-task .desc select, .new-task .subtasks input, .new-task .subtasks select, .new-task .status input, .new-task .status select {
+main .new-task .title input, main .new-task .title select, main .new-task .desc input, main .new-task .desc select, main .new-task .subtasks input, main .new-task .subtasks select, main .new-task .status input, main .new-task .status select {
   width: 100%;
   outline: none;
   color: #fff;
@@ -112,74 +105,169 @@ main nav button:hover {
   margin-bottom: 10px;
   transition: 0.3s;
 }
-.new-task .title input option, .new-task .title select option, .new-task .desc input option, .new-task .desc select option, .new-task .subtasks input option, .new-task .subtasks select option, .new-task .status input option, .new-task .status select option {
+main .new-task .title input option, main .new-task .title select option, main .new-task .desc input option, main .new-task .desc select option, main .new-task .subtasks input option, main .new-task .subtasks select option, main .new-task .status input option, main .new-task .status select option {
   color: #000;
 }
-.new-task .title input:focus, .new-task .title select:focus, .new-task .desc input:focus, .new-task .desc select:focus, .new-task .subtasks input:focus, .new-task .subtasks select:focus, .new-task .status input:focus, .new-task .status select:focus {
+main .new-task .title input:focus, main .new-task .title select:focus, main .new-task .desc input:focus, main .new-task .desc select:focus, main .new-task .subtasks input:focus, main .new-task .subtasks select:focus, main .new-task .status input:focus, main .new-task .status select:focus {
   border: 1px solid #ccc;
 }
-.new-task button h4 {
+main .new-task button {
+  background-color: #645FC6;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  color: #fff;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+main .new-task button:hover {
+  color: #645FC6;
+  background-color: #fff;
+}
+main .new-task button h4 {
   margin: 0;
   font-weight: 600;
 }
-
-section.main-sec {
+main section.main-sec {
   height: 100%;
   padding: 40px;
   background-color: #21212D;
   display: flex;
 }
-section.main-sec .data-handler {
+main section.main-sec .data-handler {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
   flex-direction: row;
-  /*div {
-  }*/
 }
-section.main-sec .data-handler .todos, section.main-sec .data-handler .done, section.main-sec .data-handler .doing {
+main section.main-sec .data-handler .todos, main section.main-sec .data-handler .done, main section.main-sec .data-handler .doing {
   flex: 1;
   position: relative;
 }
-section.main-sec .data-handler .todos .pre-plan, section.main-sec .data-handler .done .pre-plan, section.main-sec .data-handler .doing .pre-plan {
+main section.main-sec .data-handler .todos .pre-plan, main section.main-sec .data-handler .done .pre-plan, main section.main-sec .data-handler .doing .pre-plan {
   position: relative;
   display: flex;
   margin-left: 10px;
   align-items: center;
 }
-section.main-sec .data-handler .todos .pre-plan .status, section.main-sec .data-handler .done .pre-plan .status, section.main-sec .data-handler .doing .pre-plan .status {
+main section.main-sec .data-handler .todos .pre-plan .status, main section.main-sec .data-handler .done .pre-plan .status, main section.main-sec .data-handler .doing .pre-plan .status {
   color: #918e8e;
   font-size: 12px;
   margin-left: 20px;
 }
-section.main-sec .data-handler .todos .pre-plan span, section.main-sec .data-handler .done .pre-plan span, section.main-sec .data-handler .doing .pre-plan span {
+main section.main-sec .data-handler .todos .pre-plan span, main section.main-sec .data-handler .done .pre-plan span, main section.main-sec .data-handler .doing .pre-plan span {
   position: absolute;
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
-section.main-sec .data-handler .todos .pre-plan span.todo-span, section.main-sec .data-handler .done .pre-plan span.todo-span, section.main-sec .data-handler .doing .pre-plan span.todo-span {
+main section.main-sec .data-handler .todos .pre-plan span.todo-span, main section.main-sec .data-handler .done .pre-plan span.todo-span, main section.main-sec .data-handler .doing .pre-plan span.todo-span {
   background-color: #45c4e7;
 }
-section.main-sec .data-handler .todos .pre-plan span.done-span, section.main-sec .data-handler .done .pre-plan span.done-span, section.main-sec .data-handler .doing .pre-plan span.done-span {
+main section.main-sec .data-handler .todos .pre-plan span.done-span, main section.main-sec .data-handler .done .pre-plan span.done-span, main section.main-sec .data-handler .doing .pre-plan span.done-span {
   background-color: #67e0ab;
 }
-section.main-sec .data-handler .todos .pre-plan span.doing-span, section.main-sec .data-handler .done .pre-plan span.doing-span, section.main-sec .data-handler .doing .pre-plan span.doing-span {
+main section.main-sec .data-handler .todos .pre-plan span.doing-span, main section.main-sec .data-handler .done .pre-plan span.doing-span, main section.main-sec .data-handler .doing .pre-plan span.doing-span {
   background-color: #836ef9;
 }
-section.main-sec .data-handler .todos .pre-plan h4, section.main-sec .data-handler .done .pre-plan h4, section.main-sec .data-handler .doing .pre-plan h4 {
+main section.main-sec .data-handler .todos .pre-plan h4, main section.main-sec .data-handler .done .pre-plan h4, main section.main-sec .data-handler .doing .pre-plan h4 {
   margin-left: 20px;
   text-transform: uppercase;
   font-size: 13px;
 }
-section.main-sec .data-handler .todo, section.main-sec .data-handler .done-todos, section.main-sec .data-handler .doing-todos {
+main section.main-sec .data-handler .todo, main section.main-sec .data-handler .done-todos, main section.main-sec .data-handler .doing-todos {
   margin: 10px;
   background-color: #2C2C38;
   padding: 20px;
   width: 97%;
   margin-right: 10px;
   border-radius: 4px;
+  transition: 0.3s;
 }
-section.main-sec .data-handler .todo p, section.main-sec .data-handler .done-todos p, section.main-sec .data-handler .doing-todos p {
+main section.main-sec .data-handler .todo p, main section.main-sec .data-handler .done-todos p, main section.main-sec .data-handler .doing-todos p {
   margin-bottom: 10px;
+}
+main section.main-sec .data-handler .todo:hover, main section.main-sec .data-handler .done-todos:hover, main section.main-sec .data-handler .doing-todos:hover {
+  transition: 0.3s;
+  background-color: #232331;
+  cursor: pointer;
+}
+main .show-query select {
+  width: 100%;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #555555;
+  padding: 13px;
+  margin: 10px 0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+main .show-query select option {
+  color: #000;
+}
+main .show-query select:focus {
+  border: 1px solid #ccc;
+}
+main .show-query button {
+  background-color: #645FC6;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  color: #fff;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 5px 0;
+}
+main .show-query button:hover {
+  color: #645FC6;
+  background-color: #fff;
+}
+main aside {
+  flex: 1;
+  height: 100vh;
+  color: #fff;
+  background-color: #2C2C38;
+  border-right: 1px solid #888;
+}
+main aside .logo {
+  margin: 15px;
+}
+main aside p {
+  margin: 15px;
+  color: #777;
+  font-weight: 500;
+  font-size: 16px;
+}
+main aside ul li {
+  cursor: pointer;
+  margin: 15px;
+  list-style: none;
+  margin-bottom: 10px;
+}
+main aside ul li a {
+  color: #777 !important;
+  text-decoration: none;
+}
+main aside ul li i {
+  color: #777 !important;
+  margin-right: 10px;
+}
+main aside ul li.active {
+  margin: 0;
+  background-color: #645FC6;
+  padding: 15px;
+  border-bottom-right-radius: 28px;
+  border-top-right-radius: 30px;
+  width: 90%;
+}
+main aside ul li.active a, main aside ul li.active i {
+  color: #fff !important;
+}
+main aside ul li.create-new-board span, main aside ul li.create-new-board i {
+  color: #645FC6 !important;
 }/*# sourceMappingURL=style.css.map */

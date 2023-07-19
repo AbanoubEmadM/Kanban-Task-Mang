@@ -9,43 +9,44 @@ html(lang="en")
                     .platform 
                         p Platform Launch
                     .add-task
-                        button 
+                        button
                             h4 +Add New Task
                 .new-task
                     h2 Add New Task 
                     .title 
                         h4 Title 
-                        input(type='text' placeholder='e.g Take coffe break')
-                    .desc 
-                        h4 Description 
-                        input(type='text' placeholder='e.g its always good take a break. This 15 minutes break will rechange the battaries a little.')
+                        input(type='text' id='title' placeholder='e.g Take coffe break' required)
                     .subtasks 
                         h4 Subtasks 
-                        input(type='text' placeholder='e.g Make coffee')
-                        //input(type='text' placeholder='e.g Drink coffee & smile')
-                        button.add-task 
-                            h4 +Add New Subtask
-                    .status 
-                        h4 Status 
-                        select(name="" id='categories')  
-                            option Select Category
-                            option(value='platform-launch') Platform Launch
+                        input(type='text' id='subtitle' placeholder='e.g Make coffee' required)
+                    .status
+                        h4 Status                                 
+                        select(name="" id='categories' required)  
+                            option(value='platform-launch' selected) Platform Launch
                             option(value='marketing-plan') Marketing Plan
                             option(value='roadmap') Roadmap
-                        select(name="" id='state')  
-                            option Select Category
-                            option(value='todos') Todo
-                            option(value='doing') Doing
-                            option(value='done') Done
-                    button.create-task Create new task
+                        select(name="" id='state' required)  
+                            option(value='todos/todo' selected) Todo
+                            option(value='doing/doing-todos') Doing
+                            option(value='done/done-todos') Done
+                        button.create-task 
+                            h4 Create new task
                 section.main-sec
-                    .data-handler
+                   .data-handler
+            .show-query
 
             aside 
-                p aside
+                .logo 
+                    img(src='lib/logo.png')
+                p All Boards
                 ul 
                     - const links = [{name: 'platform-launch', value: 'Platform Launch'}, {name: 'roadmap', value: 'Roadmap'}, {name: 'marketing-plan', value: 'Marketing Plan'}]
                     each link in links
-                        li 
+                        li(class=`${link.name}`)
+                            i(class="fa-solid fa-table-columns")
                             a(href=`#${link.name}`)= link.value
+                    li(class='create-new-board')
+                        i(class="fa-solid fa-table-columns")
+                        span +Create New Board
+            .new-board
         script(src="dist/bundle.js") 
