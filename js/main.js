@@ -188,8 +188,23 @@ document.querySelector(`li.${window.location.href.includes("#") ? window.locatio
 
 let addBoard = document.querySelector(".create-new-board");
 let newBoard = document.querySelector('.new-board')
+let boardName = document.querySelector(".new-board input")
 
 addBoard.addEventListener("click", () => {
     newBoard.classList.add("active")
     overlay.classList.add("active")
+})
+
+let createBoard = document.querySelector(".new-board button")
+
+createBoard.addEventListener("click", () => {
+    console.log(boardName.value);
+    addDoc(collection(db,`${boardName.value}/todos/todo/`),{
+        name:'test',
+        age: '01'
+    }).then(() => {
+        addDoc(collection(db,`${boardName.value}/doing/doing-todos`),{})
+        addDoc(collection(db,`${boardName.value}/done/done-todos`),{})
+    })
+
 })

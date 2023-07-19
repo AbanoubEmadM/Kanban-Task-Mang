@@ -1,9 +1,9 @@
-%floating-box {
+@mixin floating-box($height) {
     position: absolute;
     top: -1000px;
     transition: 0.3s;
     width: 400px;
-    height: 650px;
+    height: $height;
     //transform: translate(50%,50%); 
     left: 40%;   
     padding: 20px;
@@ -16,8 +16,10 @@
     &.active {
         top: 15%;
     }
-
 }
-.new-task, .show-query, .new-board{
-    @extend %floating-box
+.new-task, .new-board{
+    @include floating-box(550px)
+}
+.show-query{
+    @include floating-box(450px)
 }

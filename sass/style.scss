@@ -190,6 +190,16 @@ main {
                 font-weight: 500;
                 font-size: 16px;
             }
+            div {
+                margin: 15px;
+                cursor: pointer;
+                span {
+                    margin-left: 5px;
+                }
+                span,i {
+                    color: $btn-color !important;
+                }
+            }
             ul {
                 li{
                     cursor: pointer;
@@ -215,12 +225,12 @@ main {
                             color: #fff !important;
                         }
                     }
-                    &.create-new-board {
-                        span,i {
-                            color: $btn-color !important;
-                        }
-                    }
                 }
+            }
+        }
+        .new-board {
+            button {
+                @include btn($btn-color, $light-color);
             }
         }
     }

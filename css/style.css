@@ -1,9 +1,9 @@
-.new-task, .show-query, .new-board {
+.new-task, .new-board {
   position: absolute;
   top: -1000px;
   transition: 0.3s;
   width: 400px;
-  height: 650px;
+  height: 550px;
   left: 40%;
   padding: 20px;
   border-radius: 5px;
@@ -13,7 +13,26 @@
   z-index: 2;
   color: #fff;
 }
-.active.new-task, .active.show-query, .active.new-board {
+.new-task.active, .new-board.active {
+  top: 15%;
+}
+
+.show-query {
+  position: absolute;
+  top: -1000px;
+  transition: 0.3s;
+  width: 400px;
+  height: 450px;
+  left: 40%;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #2C2C38;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  color: #fff;
+}
+.show-query.active {
   top: 15%;
 }
 
@@ -243,6 +262,16 @@ main aside p {
   font-weight: 500;
   font-size: 16px;
 }
+main aside div {
+  margin: 15px;
+  cursor: pointer;
+}
+main aside div span {
+  margin-left: 5px;
+}
+main aside div span, main aside div i {
+  color: #645FC6 !important;
+}
 main aside ul li {
   cursor: pointer;
   margin: 15px;
@@ -268,6 +297,17 @@ main aside ul li.active {
 main aside ul li.active a, main aside ul li.active i {
   color: #fff !important;
 }
-main aside ul li.create-new-board span, main aside ul li.create-new-board i {
-  color: #645FC6 !important;
+main .new-board button {
+  background-color: #645FC6;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  color: #fff;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+main .new-board button:hover {
+  color: #645FC6;
+  background-color: #fff;
 }/*# sourceMappingURL=style.css.map */

@@ -45,8 +45,11 @@ html(lang="en")
                         li(class=`${link.name}`)
                             i(class="fa-solid fa-table-columns")
                             a(href=`#${link.name}`)= link.value
-                    li(class='create-new-board')
-                        i(class="fa-solid fa-table-columns")
-                        span +Create New Board
+                div(class='create-new-board')
+                    i(class="fa-solid fa-table-columns")
+                    span +Create New Board
             .new-board
+                span Board Name: 
+                input(type="text" placeholder='Enter Board Name')
+                button Add Board
         script(src="dist/bundle.js") 
