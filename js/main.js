@@ -25,6 +25,7 @@ function fetchDocs(ref) {
         .then((snapshots) => {
             let data = []
             snapshots.docs.forEach((doc) => {
+                console.log(doc);
                 data.push({...doc.data(),id:doc.id})
             })
 
@@ -171,24 +172,14 @@ setTimeout(() => {
     })
 }, 1000)
 let boards = document.querySelectorAll("aside li");
-console.log(boards.length);
-/*
-boards[0].classList.add("active")
-console.log(window.location.href.split('#')[1]);
-boards.forEach((board) => {
-    board.addEventListener("click", () => {
-        boards.forEach((board) => board.classList.remove("active"))
-        board.classList.add("active")
-    })
-})
-*/
 let boardsLength = document.querySelector("aside p");
 boardsLength.innerHTML += ` (${boards.length})`
-document.querySelector(`li.${window.location.href.includes("#") ? window.location.href.split('#')[1] : 'platform-launch'}`).classList.add("active")
+//document.querySelector(`li.${window.location.href.includes("#") ? window.location.href.split('#')[1] : 'platform-launch'}`).classList.add("active")
 
 let addBoard = document.querySelector(".create-new-board");
 let newBoard = document.querySelector('.new-board')
 let boardName = document.querySelector(".new-board input")
+let allBoards = document.querySelector("aside ul")
 
 addBoard.addEventListener("click", () => {
     newBoard.classList.add("active")
@@ -199,12 +190,15 @@ let createBoard = document.querySelector(".new-board button")
 
 createBoard.addEventListener("click", () => {
     console.log(boardName.value);
+    allBoards.innerHTML += `<li>
+        <i class='fa-solid fa-table-columns' />
+        <a>${boardName.value}<a/>
+    </li>`
     addDoc(collection(db,`${boardName.value}/todos/todo/`),{
         name:'test',
         age: '01'
     }).then(() => {
         addDoc(collection(db,`${boardName.value}/doing/doing-todos`),{})
         addDoc(collection(db,`${boardName.value}/done/done-todos`),{})
-    })
-
+    }).then(() => location.reload())
 })

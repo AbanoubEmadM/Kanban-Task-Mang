@@ -40,11 +40,7 @@ html(lang="en")
                     img(src='lib/logo.png')
                 p All Boards
                 ul 
-                    - const links = [{name: 'platform-launch', value: 'Platform Launch'}, {name: 'roadmap', value: 'Roadmap'}, {name: 'marketing-plan', value: 'Marketing Plan'}]
-                    each link in links
-                        li(class=`${link.name}`)
-                            i(class="fa-solid fa-table-columns")
-                            a(href=`#${link.name}`)= link.value
+
                 div(class='create-new-board')
                     i(class="fa-solid fa-table-columns")
                     span +Create New Board
